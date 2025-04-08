@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Write readable code: Key Points</title>
+<title>Write Readable Code: Key Points</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="../assets/styles.css">
 <script src="../assets/scripts.js" type="text/javascript"></script><!-- mathjax --><script type="text/x-mathjax-config">
@@ -34,7 +34,7 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="incubator-logo" alt="How to write readable and reusable code" src="../assets/images/incubator-logo.svg"><span class="badge text-bg-danger">
+        <img id="incubator-logo" alt="Carpentries Incubator" src="../assets/images/incubator-logo.svg"><span class="badge text-bg-danger">
           <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
             <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link">
               <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
@@ -91,10 +91,10 @@
       <span class="menu-title">Menu</span>
     </button>
     <div class="nav-logo">
-      <img class="small-logo" alt="How to write readable and reusable code" src="../assets/images/incubator-logo-sm.svg">
+      <img class="small-logo" alt="Carpentries Incubator" src="../assets/images/incubator-logo-sm.svg">
 </div>
     <div class="lesson-title-md">
-      Write readable code
+      Write Readable Code
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -105,7 +105,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Write readable code
+            Write Readable Code
           </span>
         </li>
         <li class="nav-item">
@@ -142,7 +142,7 @@
   </div>
 <!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
-  Write readable code
+  Write Readable Code
 </div>
 
 <aside class="col-md-12 lesson-progress"><div style="width: %" class="percentage">
@@ -244,7 +244,43 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction.html">1. Using Markdown</a>
+        <a href="Episode1.html">1. Write Readable Code</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush3">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading3">
+        <a href="Episode2.html">2. Write Elegant Code</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush4">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading4">
+        <a href="Episode3.html">3. Write Graceful Code</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush5">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading5">
+        <a href="Episode4.html">4. Write Reliable Code</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -308,17 +344,73 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         
         
-<section id="introduction"><h2 class="section-heading"><a href="introduction.html">Using Markdown</a></h2>
+<section id="Episode1"><h2 class="section-heading"><a href="Episode1.html">Write Readable Code</a></h2>
 <hr class="half-width">
 <ul>
-<li>Use <code>.md</code> files for episodes when you want static
-content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate
-output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues
-with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson
-locally</li>
+<li>
+<strong>Clarity</strong>: Make sure your code is easy to
+understand.</li>
+<li>
+<strong>Simplicity</strong>: Keep the code simple and avoid
+unnecessary complexity.</li>
+<li>
+<strong>Structure</strong>: Organize your code well (e.g., use
+functions, classes, and modules appropriately).</li>
+<li>
+<strong>Minimal Redundancy</strong>: Avoid code duplication to
+improve efficiency.</li>
+<li>
+<strong>Documentation</strong>: Add comments to clarify the logic
+and intent behind your code.</li>
+</ul></section><section id="Episode2"><h2 class="section-heading"><a href="Episode2.html">Write Elegant Code</a></h2>
+<hr class="half-width">
+<ul>
+<li>Naming variables is an important step to improve code
+readability.</li>
+<li>A good name can explain the intent of the code without extra
+information.</li>
+<li>Some guidelines can help name variables, functions, and
+modules.</li>
+<li>Avoid single letters, ambiguous names and magic numbers in your
+code</li>
+<li>Be consistent.</li>
+</ul></section><section id="Episode3"><h2 class="section-heading"><a href="Episode3.html">Write Graceful Code</a></h2>
+<hr class="half-width">
+<ul>
+<li>
+<em>Docstrings</em> provide clear documentation of your code and
+improve its readability and usability.</li>
+<li>
+<em>Error handling techniques</em> help build robust code. The idea
+is to anticipate potential errors and to implement mechanisms to handle
+them gracefully.
+<ul>
+<li>
+<em>Assertions</em> ensure that certain conditions are met during
+code execution.</li>
+<li>By <em>raising specific exceptions</em>
+(e.g. <code>TypeError</code>, <code>ValueError</code>), you can not only
+control the behaviour of your code when things go wrong but also inform
+the user that something is right.</li>
+</ul>
+</li>
+</ul></section><section id="Episode4"><h2 class="section-heading"><a href="Episode4.html">Write Reliable Code</a></h2>
+<hr class="half-width">
+<ul>
+<li>Testing increases trust in code and its results.</li>
+<li>Test Driven Development helps to write tests alongside code</li>
+<li>Pytest offers a powerful testing framework from Python code,
+offering different built-in functions and methods to test various
+aspects of the code:
+<ul>
+<li>
+<strong><code>@pytest.mark.parametrize</code></strong>: To test
+different input values</li>
+<li>
+<strong><code>pytest.raises</code></strong>: To test error
+handling</li>
+</ul>
+</li>
 </ul></section>
 </div>
     </main>
@@ -332,19 +424,19 @@ locally</li>
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
 
-        <a href="https://github.com/carpentries/workbench-template-md/edit/main/README.md" class="external-link">Edit on GitHub</a>
+        <a href="https://github.com/MagdaG81/write-readable-code/edit/main/README.md" class="external-link">Edit on GitHub</a>
 
 	
-        | <a href="https://github.com/carpentries/workbench-template-md/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
-        | <a href="https://github.com/carpentries/workbench-template-md/" class="external-link">Source</a></p>
-				<p><a href="https://github.com/carpentries/workbench-template-md/blob/main/CITATION.cff" class="external-link">Cite</a> | <a href="mailto:">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+        | <a href="https://github.com/MagdaG81/write-readable-code/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
+        | <a href="https://github.com/MagdaG81/write-readable-code/" class="external-link">Source</a></p>
+				<p><a href="https://github.com/MagdaG81/write-readable-code/blob/main/CITATION.cff" class="external-link">Cite</a> | <a href="mailto:magda.guglielmo%20at%20csiro.au">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
 
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.11" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.7" class="external-link">pegboard (0.7.7)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.5" class="external-link">varnish (1.0.5)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.11" class="external-link">sandpaper (0.16.11)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.5" class="external-link">varnish (1.0.5)</a></p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -357,18 +449,18 @@ locally</li>
     {
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
-  "@id": "https://carpentries.github.io/workbench-template-md/instructor/key-points.html",
+  "@id": "https://MagdaG81.github.io/write-readable-code/instructor/key-points.html",
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "software, python, good practice",
+  "keywords": "software, Python, lesson, The Carpentries",
   "name": "Key Points",
   "creativeWorkStatus": "active",
-  "url": "https://carpentries.github.io/workbench-template-md/instructor/key-points.html",
-  "identifier": "https://carpentries.github.io/workbench-template-md/instructor/key-points.html",
-  "dateCreated": "2025-01-28",
-  "dateModified": "2025-02-18",
-  "datePublished": "2025-02-18"
+  "url": "https://MagdaG81.github.io/write-readable-code/instructor/key-points.html",
+  "identifier": "https://MagdaG81.github.io/write-readable-code/instructor/key-points.html",
+  "dateCreated": "2025-01-29",
+  "dateModified": "2025-04-08",
+  "datePublished": "2025-04-08"
 }
 
   </script><script>
