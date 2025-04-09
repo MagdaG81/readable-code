@@ -32,13 +32,13 @@ This course requires some understanding of basic Python syntax.
 
 - [Type of variables in Python ](https://swcarpentry.github.io/python-novice-inflammation/01-intro.html)
 - [Function in Python](https://swcarpentry.github.io/python-novice-inflammation/08-func.html)]
--[Import packages](https://swcarpentry.github.io/python-novice-gapminder/06-libraries.html)
--[If statement](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html)
--[Loop in Python] (https://swcarpentry.github.io/python-novice-inflammation/05-loop.html)
+- [Import packages](https://swcarpentry.github.io/python-novice-gapminder/06-libraries.html)
+- [If statement](https://swcarpentry.github.io/python-novice-inflammation/07-cond.html)
+- [Loop in Python] (https://swcarpentry.github.io/python-novice-inflammation/05-loop.html)
 - [Error and exception](https://swcarpentry.github.io/python-novice-inflammation/09-errors.html)
 - [Assertion](https://swcarpentry.github.io/python-novice-inflammation/10-defensive.html)
 
-Use the following workshop to revise your knowledge
+Use the following workshops to revise your knowledge
 
 - [Programming with Python](https://swcarpentry.github.io/python-novice-inflammation/)
 - [Plotting and Programming in Python](https://swcarpentry.github.io/python-novice-gapminder/)
