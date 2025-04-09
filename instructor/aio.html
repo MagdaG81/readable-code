@@ -346,7 +346,7 @@
         
 <section id="aio-Episode1"><p>Content from <a href="Episode1.html">Write Readable Code</a></p>
 <hr>
-<p>Last updated on 2025-04-08 |
+<p>Last updated on 2025-04-09 |
 
         <a href="https://github.com/MagdaG81/write-readable-code/edit/main/episodes/Episode1.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 17 minutes</p>
@@ -546,12 +546,152 @@ better version can be:</p>
 <ul>
 <li>Better variable and function names make the code
 self-explanatory</li>
-<li>Split responsibilities: The original function has been split in two
+<li>Separation of Concern: The original function has been split in two
 so that it is clear what happens</li>
 <li>Let them focus on the fact that the <code>radius</code> definition
 depends on two magic numbers, 0 and 1.</li>
+<li>This example can be used to introduce the DRY and SoC
+principles.</li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="why-does-structured-code-improve-readability">Why does structured code improve readability?<a class="anchor" aria-label="anchor" href="#why-does-structured-code-improve-readability"></a>
+</h2>
+<hr class="half-width">
+<p>Image to read a document that looks like the one below &gt;This is a
+document that has no punctuation or structure it just keeps going on and
+on without any breaks or organization the words run together endlessly
+making it very difficult to understand what the author is trying to
+communicate the text flows continuously without any separation between
+ideas or concepts it becomes increasingly hard to follow the train of
+thought as the words keep flowing together in an endless stream of
+characters without any visual breaks or formatting to help guide the
+reader through the content</p>
+<p>The text is a continuous, unbroken sequence of words. It might
+contain the most deep considerations or be the most interesting
+document, but reading it is hard. The challenge is to find specific
+information, where one idea starts or ends. To modify this wall of words
+is even more complex: how can you be sure that changes will not affect
+another part?</p>
+<p>This unstructured text is how unstructured code appears. Just as this
+text lacks punctuation, paragraphs, and formatting, unstructured code
+lacks modular organization, clear separation of functions, and logical
+flow control that makes structured code readable and maintainable.</p>
+<p>Several coding design principles can help create structured code.
+These principles provide guidelines on what to consider and avoid when
+creating code. Among all, two shine for simplicity and
+effectiveness:</p>
+<ul>
+<li><p><strong>Separation of Concern</strong> (<strong>SoC</strong>):
+This design principle separates a program into distinct sections. Each
+section (e.g., function or module) does one thing only, and it should be
+able to work independently. SoC helps create a clear code structure,
+improving the code readability and reusability. Indeed, each component
+can be reused across different parts of the code and projects.</p></li>
+<li><p><strong>DRY</strong>: DRY stands for “Don’t Repeat Yourself”. The
+statement is clear: Each piece of code should only appear once. Code
+duplications are nightmares. Every time something needs to change, the
+changes must be applied in different parts of the codebase. When common
+logic is extracted into reusable components, any changes will only
+happen in one place, improving the maintainability of the code.</p></li>
+</ul>
+<p>Let’s see an example of how applying these two principles improves
+the code.</p>
+<div id="from-unstructured-to-structured-code" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div id="from-unstructured-to-structured-code" class="callout-inner">
+<h3 class="callout-title">From unstructured to structured code</h3>
+<div class="callout-content">
+<p>The code below generate two datasets of points and apply linear
+regression.</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co"># Dataset 1</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> X <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="bu">len</span>(X))</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co"># Calculate coefficients using np.linalg</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>A <span class="op">=</span> np.vstack([X, np.ones(<span class="bu">len</span>(X))]).T</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>coefficients <span class="op">=</span> np.linalg.lstsq(A, y, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>m, b <span class="op">=</span> coefficients</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co"># Dataset 2 </span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>X1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>y1 <span class="op">=</span> <span class="fl">1.5</span> <span class="op">*</span> X1 <span class="op">+</span> <span class="fl">0.5</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="bu">len</span>(X))</span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>A1 <span class="op">=</span> np.vstack([X1, np.ones(<span class="bu">len</span>(X1))]).T</span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>coefficients1 <span class="op">=</span> np.linalg.lstsq(A1, y1, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>m1, b1 <span class="op">=</span> coefficients1</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="co"># Verify all calculations give same result</span></span>
+<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Case 1: Slope: = "</span>,<span class="bu">round</span>(m,<span class="dv">4</span>),<span class="st">"intercept ="</span>,<span class="bu">round</span>(b,<span class="dv">4</span>))</span>
+<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Case 2: Slope: = "</span>,<span class="bu">round</span>(m1,<span class="dv">4</span>),<span class="st">"intercept ="</span>,<span class="bu">round</span>(b1,<span class="dv">4</span>))</span></code></pre>
+</div>
+<p>The code works as expected and appears straightforward but violates
+both principles. Let us see why.</p>
+<p><strong>DRY Principle violations</strong></p>
+<p>The code that creates the two arrays <code>X</code> and
+<code>X1</code> is the same; this means that if we need to change one
+array, we need to apply the changes twice. Similarly, the code that
+calculates the slope and intercepts is repeated for both datasets.</p>
+<p><strong>SoC Principle violations</strong></p>
+<p>Although the operations appear sequentially, the code has no clear
+structure. They depend on the previous one, meaning that changing one
+part of the code will change everything else, so code blocks are not
+independent. Also, the concerns are mixed together with no clear
+separation.</p>
+<p>These violations generate a lot of problems: what if you need to
+reuse the code? What if you need to apply to a different dataset? What
+if you need to repeat the same calculation for 100 datasets? Would any
+of these modifications be easy?</p>
+<p>Below, a different version of the code that tries to correct these
+violations is presented.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="kw">def</span> generate_data(x_values, slope, intercept):</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    y_values <span class="op">=</span> slope <span class="op">*</span> x_values <span class="op">+</span> intercept <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="bu">len</span>(x_values)) </span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    <span class="cf">return</span> y_values</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="kw">def</span> fit_linear_regression(x_values, y_values):</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>    A <span class="op">=</span> np.vstack([X, np.ones(<span class="bu">len</span>(x_values))]).T</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    coefficients <span class="op">=</span> np.linalg.lstsq(A, y_values, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>] </span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>    <span class="cf">return</span> </span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>    </span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co"># Usage</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>base_X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>case1_y <span class="op">=</span> generate_data(base_X, <span class="fl">2.0</span>, <span class="fl">1.0</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>case2_y <span class="op">=</span> generate_data(base_X, <span class="fl">1.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>m, b <span class="op">=</span> fit_linear_regression(base_X, case1_y)</span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>verify_coefficients(m, b)</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>m1, b1 <span class="op">=</span> fit_linear_regression(base_X, case2_y)</span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>verify_coefficients(m1, b1)</span></code></pre>
+</div>
+<p>This new version uses a single data generation function for both
+cases and a single linear regression function that can be applied to
+both datasets. These two functions fix all the DRY violations. At the
+same time, they also solve the SoC violations: each new function has one
+scope and clearly separates the data generations and model fittings.</p>
+<p>This improved structure makes the code more maintainable, testable,
+and easier to extend while eliminating redundant calculations and mixed
+responsibilities.</p>
 </div>
 </div>
 </div>
@@ -606,7 +746,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-Episode2"><p>Content from <a href="Episode2.html">Write Elegant Code</a></p>
 <hr>
-<p>Last updated on 2025-04-08 |
+<p>Last updated on 2025-04-09 |
 
         <a href="https://github.com/MagdaG81/write-readable-code/edit/main/episodes/Episode2.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 10 minutes</p>
@@ -745,7 +885,7 @@ creating ambiguity in the code.</p>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>The variable defines a relative velocity; the <code>rlt</code> stands
 for <code>relative</code>. Try to spell the <code>v_lrt</code> aloud to
@@ -847,7 +987,7 @@ the code? - Are there any magic numbers? What problem could they cause?
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>The code uses consistent names for the two functions, which are
 self-explanatory. They have an explicit return statement and robust
@@ -910,7 +1050,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-Episode3"><p>Content from <a href="Episode3.html">Write Graceful Code</a></p>
 <hr>
-<p>Last updated on 2025-04-08 |
+<p>Last updated on 2025-04-09 |
 
         <a href="https://github.com/MagdaG81/write-readable-code/edit/main/episodes/Episode3.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 23 minutes</p>
@@ -1004,7 +1144,7 @@ results.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1200,7 +1340,7 @@ and <code>height</code> are of type <code>float</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1335,7 +1475,7 @@ more appropriate error type?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>In this case, the code should raise a <code>ValueError</code>.</p>
 <div class="codewrapper sourceCode" id="cb14">
@@ -1397,7 +1537,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-Episode4"><p>Content from <a href="Episode4.html">Write Reliable Code</a></p>
 <hr>
-<p>Last updated on 2025-04-08 |
+<p>Last updated on 2025-04-09 |
 
         <a href="https://github.com/MagdaG81/write-readable-code/edit/main/episodes/Episode4.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 55 minutes</p>
@@ -2228,8 +2368,8 @@ any links that you are not going to use.
   "url": "https://MagdaG81.github.io/write-readable-code/instructor/aio.html",
   "identifier": "https://MagdaG81.github.io/write-readable-code/instructor/aio.html",
   "dateCreated": "2025-01-29",
-  "dateModified": "2025-04-08",
-  "datePublished": "2025-04-08"
+  "dateModified": "2025-04-09",
+  "datePublished": "2025-04-09"
 }
 
   </script><script>
