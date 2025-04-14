@@ -238,7 +238,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="Episode3.html">3. Write Graceful Code</a>
+        <a href="Episode3.html">3. Write Robust Code</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -311,7 +311,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Write Readable Code</h1>
-        <p>Last updated on 2025-04-10 |
+        <p>Last updated on 2025-04-14 |
 
         <a href="https://github.com/MagdaG81/write-readable-code/edit/main/episodes/Episode1.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -433,21 +433,30 @@ intent.</li>
 </div>
 
 </section><section><h2 class="section-heading" id="why-does-structured-code-improve-readability">Why does structured code improve readability?<a class="anchor" aria-label="anchor" href="#why-does-structured-code-improve-readability"></a></h2>
-<hr class="half-width"><p>Image to read a document that looks like the one below &gt;This is a
-document that has no punctuation or structure it just keeps going on and
-on without any breaks or organization the words run together endlessly
-making it very difficult to understand what the author is trying to
-communicate the text flows continuously without any separation between
-ideas or concepts it becomes increasingly hard to follow the train of
-thought as the words keep flowing together in an endless stream of
-characters without any visual breaks or formatting to help guide the
-reader through the content</p>
-<p>The text is a continuous, unbroken sequence of words. It might
-contain the most deep considerations or be the most interesting
-document, but reading it is hard. The challenge is to find specific
-information, where one idea starts or ends. To modify this wall of words
-is even more complex: how can you be sure that changes will not affect
-another part?</p>
+<hr class="half-width"><p>Imagine reading a document like the one below</p>
+<div id="section" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="section" class="callout-inner">
+<h3 class="callout-title"></h3>
+<div class="callout-content">
+<p>This is a document that has no punctuation or structure it just keeps
+going on and on without any breaks or organization the words run
+together endlessly making it very difficult to understand what the
+author is trying to communicate the text flows continuously without any
+separation between ideas or concepts it becomes increasingly hard to
+follow the train of thought as the words keep flowing together in an
+endless stream of characters without any visual breaks or formatting to
+help guide the reader through the content The text is a continuous,
+unbroken sequence of words. It might contain the most deep
+considerations or be the most interesting document, but reading it is
+hard. The challenge is to find specific information, where one idea
+starts or ends. To modify this wall of words is even more complex: how
+can you be sure that changes will not affect another part?</p>
+</div>
+</div>
+</div>
 <p>This unstructured text is how unstructured code appears. Just as this
 text lacks punctuation, paragraphs, and formatting, unstructured code
 lacks modular organization, clear separation of functions, and logical
@@ -479,35 +488,35 @@ the code.</p>
 <div class="callout-content">
 <p>The code below generate two datasets of points and apply linear
 regression.</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co"># Dataset 1</span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> X <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="bu">len</span>(X))</span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co"># Calculate coefficients using np.linalg</span></span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>A <span class="op">=</span> np.vstack([X, np.ones(<span class="bu">len</span>(X))]).T</span>
-<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>coefficients <span class="op">=</span> np.linalg.lstsq(A, y, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
-<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>m, b <span class="op">=</span> coefficients</span>
-<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="co"># Dataset 2 </span></span>
-<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a>X1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a>y1 <span class="op">=</span> <span class="fl">1.5</span> <span class="op">*</span> X1 <span class="op">+</span> <span class="fl">0.5</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="bu">len</span>(X))</span>
-<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a>A1 <span class="op">=</span> np.vstack([X1, np.ones(<span class="bu">len</span>(X1))]).T</span>
-<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>coefficients1 <span class="op">=</span> np.linalg.lstsq(A1, y1, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
-<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>m1, b1 <span class="op">=</span> coefficients1</span>
-<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a></span>
-<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a><span class="co"># Verify all calculations give same result</span></span>
-<span id="cb5-25"><a href="#cb5-25" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Case 1: Slope: = "</span>,<span class="bu">round</span>(m,<span class="dv">4</span>),<span class="st">"intercept ="</span>,<span class="bu">round</span>(b,<span class="dv">4</span>))</span>
-<span id="cb5-26"><a href="#cb5-26" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Case 2: Slope: = "</span>,<span class="bu">round</span>(m1,<span class="dv">4</span>),<span class="st">"intercept ="</span>,<span class="bu">round</span>(b1,<span class="dv">4</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co"># Dataset 1</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> X <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="bu">len</span>(X))</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co"># Calculate coefficients using np.linalg</span></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>A <span class="op">=</span> np.vstack([X, np.ones(<span class="bu">len</span>(X))]).T</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>coefficients <span class="op">=</span> np.linalg.lstsq(A, y, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>m, b <span class="op">=</span> coefficients</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="co"># Dataset 2 </span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>X1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>y1 <span class="op">=</span> <span class="fl">1.5</span> <span class="op">*</span> X1 <span class="op">+</span> <span class="fl">0.5</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="bu">len</span>(X))</span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>A1 <span class="op">=</span> np.vstack([X1, np.ones(<span class="bu">len</span>(X1))]).T</span>
+<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>coefficients1 <span class="op">=</span> np.linalg.lstsq(A1, y1, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>]</span>
+<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a>m1, b1 <span class="op">=</span> coefficients1</span>
+<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" tabindex="-1"></a><span class="co"># Verify all calculations give same result</span></span>
+<span id="cb6-25"><a href="#cb6-25" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Case 1: Slope: = "</span>,<span class="bu">round</span>(m,<span class="dv">4</span>),<span class="st">"intercept ="</span>,<span class="bu">round</span>(b,<span class="dv">4</span>))</span>
+<span id="cb6-26"><a href="#cb6-26" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Case 2: Slope: = "</span>,<span class="bu">round</span>(m1,<span class="dv">4</span>),<span class="st">"intercept ="</span>,<span class="bu">round</span>(b1,<span class="dv">4</span>))</span></code></pre>
 </div>
 <p>The code works as expected and appears straightforward but violates
 both principles. Let us see why.</p>
@@ -528,32 +537,35 @@ if you need to repeat the same calculation for 100 datasets? Would any
 of these modifications be easy?</p>
 <p>Below, a different version of the code that tries to correct these
 violations is presented.</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="kw">def</span> generate_data(x_values, slope, intercept):</span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    y_values <span class="op">=</span> slope <span class="op">*</span> x_values <span class="op">+</span> intercept <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="bu">len</span>(x_values)) </span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    <span class="cf">return</span> y_values</span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="kw">def</span> fit_linear_regression(x_values, y_values):</span>
-<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>    A <span class="op">=</span> np.vstack([X, np.ones(<span class="bu">len</span>(x_values))]).T</span>
-<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>    coefficients <span class="op">=</span> np.linalg.lstsq(A, y_values, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>] </span>
-<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>    <span class="cf">return</span> </span>
-<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a>    </span>
-<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="co"># Usage</span></span>
-<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>base_X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>case1_y <span class="op">=</span> generate_data(base_X, <span class="fl">2.0</span>, <span class="fl">1.0</span>)</span>
-<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>case2_y <span class="op">=</span> generate_data(base_X, <span class="fl">1.5</span>, <span class="fl">0.5</span>)</span>
-<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>m, b <span class="op">=</span> fit_linear_regression(base_X, case1_y)</span>
-<span id="cb6-20"><a href="#cb6-20" tabindex="-1"></a>verify_coefficients(m, b)</span>
-<span id="cb6-21"><a href="#cb6-21" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" tabindex="-1"></a>m1, b1 <span class="op">=</span> fit_linear_regression(base_X, case2_y)</span>
-<span id="cb6-23"><a href="#cb6-23" tabindex="-1"></a>verify_coefficients(m1, b1)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co"># Generate Y data using linear equation y=mx+b with Gaussian noise </span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="kw">def</span> generate_data(x_values, slope, intercept):</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>    </span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>    y_values <span class="op">=</span> slope <span class="op">*</span> x_values <span class="op">+</span> intercept <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="bu">len</span>(x_values)) </span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>    <span class="cf">return</span> y_values</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co"># Get linear regression coefficient</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="kw">def</span> fit_linear_regression(x_values, y_values):</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>    A <span class="op">=</span> np.vstack([X, np.ones(<span class="bu">len</span>(x_values))]).T</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>    coefficients <span class="op">=</span> np.linalg.lstsq(A, y_values, rcond<span class="op">=</span><span class="va">None</span>)[<span class="dv">0</span>] </span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a>    <span class="cf">return</span> </span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a>    </span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="co"># Usage</span></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a>base_X <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a>case1_y <span class="op">=</span> generate_data(base_X, <span class="fl">2.0</span>, <span class="fl">1.0</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a>case2_y <span class="op">=</span> generate_data(base_X, <span class="fl">1.5</span>, <span class="fl">0.5</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a>m, b <span class="op">=</span> fit_linear_regression(base_X, case1_y)</span>
+<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a>verify_coefficients(m, b)</span>
+<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a>m1, b1 <span class="op">=</span> fit_linear_regression(base_X, case2_y)</span>
+<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a>verify_coefficients(m1, b1)</span></code></pre>
 </div>
 <p>This new version uses a single data generation function for both
 cases and a single linear regression function that can be applied to
@@ -571,16 +583,12 @@ responsibilities.</p>
 and usability of your code. This ensures that others (and your future
 self) can easily understand, modify, and extend the code.</p>
 <p>Writing readable code requires a bit more effort, but there are a few
-tips that make it simpler like:</p>
-<ul><li>
-<strong>Use meaningful variable names</strong>.</li>
-<li>
-<strong>Break down complex functions into smaller
-functions</strong>.</li>
-<li>
-<strong>Add comments to explain the “why” behind your
-code</strong>.</li>
-</ul><div id="keypoints1" class="callout keypoints">
+tips that make it simpler like: - <strong>Be kind with your future
+self</strong> you will thereby also be kind to others who come to your
+code. - <strong>Use meaningful variable names</strong>. - <strong>Break
+down complex functions into smaller functions</strong>. - <strong>Add
+comments to explain the “why” behind your code</strong>.</p>
+<div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -667,8 +675,8 @@ any links that you are not going to use.
   "url": "https://MagdaG81.github.io/write-readable-code/Episode1.html",
   "identifier": "https://MagdaG81.github.io/write-readable-code/Episode1.html",
   "dateCreated": "2025-01-29",
-  "dateModified": "2025-04-10",
-  "datePublished": "2025-04-10"
+  "dateModified": "2025-04-14",
+  "datePublished": "2025-04-14"
 }
 
   </script><script>

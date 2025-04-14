@@ -268,7 +268,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="Episode3.html">3. Write Graceful Code</a>
+        <a href="Episode3.html">3. Write Robust Code</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -455,36 +455,55 @@ need for the following discussions.</p>
 <a href="Episode1.html#headingInstructor2">Instructor Note</a><a class="anchor" aria-label="anchor" href="#Episode1-headingInstructor2"></a>
 </h3>
 <p><strong>Require Live coding</strong> The aim of the above discussion
-is to modify the code together focusing on the points identified in the
-previous discussion and improve the code together. An example of a
-better version can be:</p>
+is to modify and improve the code together, focusing on the points
+identified in the previous discussion. The simpler solution might be
+just to focus on the names and add some comments.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#Plot a spiral in polar coordianate</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#for a given list of theta values</span></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co"># Calculate polar coordinate for an array of angles.</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="kw">def</span> calculate_polarcoordinate(theta): <span class="co">#Meaningful names: changed names of the function and input argument</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  <span class="co"># Creates an array of evenly spaced radius values from 0 to 1. </span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>  <span class="co"># The final array has the same number of element than theta</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>  radius <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="bu">len</span>(theta))</span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  <span class="co"># Converts polar coordinates to Cartesian</span></span>
-<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  x_coordinate <span class="op">=</span> radius <span class="op">*</span> np.cos(theta)</span>
-<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>  y_coordinate <span class="op">=</span> radius <span class="op">*</span> np.sin(theta)</span>
-<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>  </span>
-<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>  <span class="cf">return</span> x_coordinate, y_coordinate <span class="co">#Better output handling</span></span>
-<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="co">#plot a spiral in polar coordinate</span></span>
-<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a><span class="kw">def</span> visualise_spiral_polar_coordinates(x_coordinate,y_coordinate): <span class="co">#split data and visualisation</span></span>
-<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>  plt.plot(x_coordinate, y_coordinate)</span>
-<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>  plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a>  plt.ylabel(<span class="st">'y'</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a>  plt.title(<span class="st">'Spiral in Polar Coordinates'</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a>  plt.show() </span></code></pre>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="kw">def</span> plot_spiral(theta):</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>  <span class="co"># Creates an array of evenly spaced radius values from 0 to 1. </span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>  <span class="co"># The final array has the same number of element than theta</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>  radius <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="bu">len</span>(theta)) </span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>  <span class="co"># Converts polar coordinates to Cartesian</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>  x_coordinate <span class="op">=</span> radius <span class="op">*</span> np.cos(theta)</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>  y_coordinate <span class="op">=</span> radius <span class="op">*</span> np.sin(theta)</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>  plt.plot(x_coordinate,y_coordinate)</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  plt.show()</span></code></pre>
+</div>
+<p>The point is to show that simple modification can improve code
+readability.</p>
+<p>A better version can be:</p>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co"># Calculate polar coordinate for an array of angles.</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="kw">def</span> calculate_polarcoordinate(theta): <span class="co">#Meaningful names: changed names of the function and input argument</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>  <span class="co"># Creates an array of evenly spaced radius values from 0 to 1. </span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>  <span class="co"># The final array has the same number of element than theta</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>  radius <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="bu">len</span>(theta))</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a>  <span class="co"># Converts polar coordinates to Cartesian</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>  x_coordinate <span class="op">=</span> radius <span class="op">*</span> np.cos(theta)</span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a>  y_coordinate <span class="op">=</span> radius <span class="op">*</span> np.sin(theta)</span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a>  </span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a>  <span class="cf">return</span> x_coordinate, y_coordinate <span class="co">#Better output handling</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a><span class="co">#plot a spiral in polar coordinate</span></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="kw">def</span> visualise_spiral_polar_coordinates(x_coordinate,y_coordinate): <span class="co">#split data and visualisation</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a>  plt.plot(x_coordinate, y_coordinate)</span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a>  plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a>  plt.ylabel(<span class="st">'y'</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a>  plt.title(<span class="st">'Spiral in Polar Coordinates'</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" tabindex="-1"></a>  plt.show() </span></code></pre>
 </div>
 <p><strong>Focus on the change</strong>:</p>
 <ul>
@@ -507,7 +526,7 @@ principles.</li>
 for <code>relative</code>. Try to spell the <code>v_lrt</code> aloud to
 show how difficult it is.</p>
 <hr>
-<br></section><section id="Episode3"><h2 class="section-heading"><a href="Episode3.html">Write Graceful Code</a></h2>
+<br></section><section id="Episode3"><h2 class="section-heading"><a href="Episode3.html">Write Robust Code</a></h2>
 <hr class="half-width"></section><section id="Episode4"><h2 class="section-heading"><a href="Episode4.html">Write Reliable Code</a></h2>
 <hr class="half-width">
 <h3 id="Episode4-headingInstructor1">
@@ -537,19 +556,19 @@ changes.</p>
 to focus on: - The EXPECTED_AVERAGE is calculated for a six-sided die.
 The code can be extended to test other values, for example, by combining
 it with <code>pytest.mark.parametrize</code>:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="at">@Pytest.mark.parametrize</span>(<span class="st">"sides, num_rolls"</span>, [</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>    (<span class="dv">6</span>, <span class="dv">10000</span>),(<span class="dv">10</span>, <span class="dv">10000</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>])</span>
-<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a><span class="kw">def</span> test_average_roll(sides, num_rolls):</span>
-<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>    <span class="co">"""Test the die is unbiased. </span></span>
-<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a><span class="co">    Assert that the average score over a number of rolls is equal to the expected average for different dice.</span></span>
-<span id="cb21-7"><a href="#cb21-7" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb21-8"><a href="#cb21-8" tabindex="-1"></a>    average <span class="op">=</span> calculate_average_rolls(sides, num_rolls)</span>
-<span id="cb21-9"><a href="#cb21-9" tabindex="-1"></a>    EXPECTED_AVERAGE <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">range</span>(<span class="dv">1</span>,sides<span class="op">+</span><span class="dv">1</span>)) <span class="op">/</span> sides</span>
-<span id="cb21-10"><a href="#cb21-10" tabindex="-1"></a>    <span class="cf">assert</span>  <span class="bu">round</span>(average,<span class="dv">1</span>) <span class="op">==</span> pytest.approx(EXPECTED_AVERAGE)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="at">@Pytest.mark.parametrize</span>(<span class="st">"sides, num_rolls"</span>, [</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>    (<span class="dv">6</span>, <span class="dv">10000</span>),(<span class="dv">10</span>, <span class="dv">10000</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>])</span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a><span class="kw">def</span> test_average_roll(sides, num_rolls):</span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>    <span class="co">"""Test the die is unbiased. </span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a><span class="co">    Assert that the average score over a number of rolls is equal to the expected average for different dice.</span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a>    average <span class="op">=</span> calculate_average_rolls(sides, num_rolls)</span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a>    EXPECTED_AVERAGE <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">range</span>(<span class="dv">1</span>,sides<span class="op">+</span><span class="dv">1</span>)) <span class="op">/</span> sides</span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a>    <span class="cf">assert</span>  <span class="bu">round</span>(average,<span class="dv">1</span>) <span class="op">==</span> pytest.approx(EXPECTED_AVERAGE)</span></code></pre>
 </div>
 <ul>
 <li>The use of <code>round</code> is to fix approximation errors,
@@ -608,8 +627,8 @@ time and accuracy.</li>
   "url": "https://MagdaG81.github.io/write-readable-code/instructor/instructor-notes.html",
   "identifier": "https://MagdaG81.github.io/write-readable-code/instructor/instructor-notes.html",
   "dateCreated": "2025-01-29",
-  "dateModified": "2025-04-10",
-  "datePublished": "2025-04-10"
+  "dateModified": "2025-04-14",
+  "datePublished": "2025-04-14"
 }
 
   </script><script>
