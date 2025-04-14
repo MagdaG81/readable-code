@@ -39,6 +39,9 @@ In this tutorial, we will develop code using the TDD approach.
 
 ### How does it work?
 
+![The Red-Green-Refactor cycle: Write a failing test (Red), implement minimal code to pass it (Green), then refine the code while keeping tests passing](./fig/TDD_RedGreenRefactor.png){alt='Illustration showing three phases of Test-Driven Development cycle: Red (failing test), Green (passing test), and Refactor (improving code)'}
+
+
 TDD is based on an iterative cycle known as "Red-Green-Refactor" (see figure) 
 
  1. Write a test to verify the functionality of the code. 
@@ -186,7 +189,7 @@ Point to the use of `sides+1` in the code. This ensures the random numbers are g
 
 
 :::::::::::::::::::::::::::::::::::::challenge
-The function roll_die() should work for custom dice, or rather, when the user decides to use a die with a different number of sides. Add a test to the test_dice_game.py that checks this requirement as well. 
+The function `roll_die()`should work for custom dice, or rather, when the user decides to use a die with a different number of sides. Add a test to the `test_dice_game.py` that checks this requirement as well. 
 
 Run `pytest` to check your code. The test should pass smoothly.
 
@@ -278,7 +281,7 @@ Highlight the fact that the docstrings should change as the code changes.
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Requirement 2: The dice-rolling system must be fair and unbiased.
+## Requirement 2: The dice rolling system must be fair and unbiased.
 
 Checking if a die-rolling system is fair involves understanding theoretical expectations and practical verification methods. For a die with N sides to be fair, we expect that
 
@@ -300,7 +303,24 @@ This is a common problem in testing and usually requires asserting that two floa
 ```python 
 abs((0.2 + 0.4) - 0.6) < 1e-6
 ```
-where the tolerance is $1\times10^{-6}$. Writing this type of tests is tedious and usually requires code repetition. However, Pytest has a built-in method that can help solve this problem: [`pytest.approx`](https://docs.Pytest.org/en/4.6.x/reference.html#functions).
+where the tolerance is $1\times10^{-6}$. Writing this type of tests is tedious and usually requires code repetition. However, Pytest has a built-in method that can help solve this problem: [`pytest.approx`](https://docs.Pytest.org/en/4.6.x/reference.html#functions). By default, `pytest.approx` uses a $1\times10^{-6}$ tolerance. There might be situations where this value is not adequate. 
+For example, let us say that the expected value is 0.62, but the function might return 0.6199 instead. Then
+```python
+result = 0.6199
+assert result == pytest.approx(0.62), "Results don't match"
+[...]
+AssertionError: Results don't match
+```
+A better check therefore might be
+```python
+result = 0.6199
+assert result == pytest.approx(0.62,1e-3), "Results don't match"
+```
+where we changed the tolerance to $1\times10^{-3}$. An alternative solution might be to use the `round()` function to approximate the solution to a given number of decimals. 
+```python
+result = 0.6199
+assert round(result,3) == pytest.approx(0.62), "Results don't match"
+```
 
 :::::::::::::::::::::::::::::::::::::challenge
 
@@ -330,7 +350,7 @@ def test_average_roll():
     """
     average = calculate_average_rolls(sides=6, num_of_rolls=1000)
     EXPECTED_AVERAGE = 3.5 #expected average for a 6-sided die.
-    assert  round(average,1) == Pytest.approx(EXPECTED_AVERAGE)
+    assert  round(average,1) == pytest.approx(EXPECTED_AVERAGE)
 ```
 Now,  modify the code `calculate_average_rolls(sides, number_of_rolls)`. 
 An example can be:

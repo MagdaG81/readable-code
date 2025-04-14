@@ -63,7 +63,7 @@ If a name requires a comment, it is not a good name
 >There are only two hard things in Computer Science: cache invalidation and naming things.
 >Phil Karlton
 
-Choosing good names is hard, and sometimes, it is more difficult than writing code itself. It seems an extra layer of complication or even a blocker for your code project. However, remember that your aim is to write a code everyone can read and understand to make it easier for the following user or developer to work with. So, the little effort you invest in naming will pay off in the long run. The good news is that there are guidelines to help you in the process. 
+Choosing good names is hard, and sometimes, it is more difficult than writing code itself. It seems an extra layer of complication or even a blocker for your code project. However, remember that your aim is to write code everyone can read and understand to make it easier for the following user or developer to work with. So, the little effort you invest in naming will pay off in the long run. The good news is that there are guidelines to help you in the process. 
 
 ## Avoid abbreviation and single letter names, but be descriptive and specific
 
@@ -90,7 +90,7 @@ v_rlt = 100 # km/h
 ```
 ::::::::::::::::::::::::::::::::::::: 
 
-### Use nouns, verbs and questions to name different component
+### Use nouns, verbs and questions to name different components
 
 Common recommendations are:
 
@@ -155,7 +155,7 @@ def calculate_gravitational_potential_energy(mass1, mass2, distance):
 ## Naming styles
 
 Naming conventions are an important part of any programming language coding style. These conventions help to maintain consistency in the code.
-More information about naming conventions in Pythoncan be found [PEP8-Style Guide for Python code](https://peps.python.org/pep-0008/#naming-conventions).
+More information about naming conventions in Python can be found [PEP8-Style Guide for Python code](https://peps.python.org/pep-0008/#naming-conventions).
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 

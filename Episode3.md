@@ -1,5 +1,5 @@
 ---
-title: "Write Graceful Code"
+title: "Write Robust Code"
 teaching: 15
 exercises: 8
 ---

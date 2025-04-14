@@ -99,7 +99,25 @@ def f(t):
 ::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 **Require Live coding**
-The aim of  the above discussion is to modify the code together focusing on the points identified in the previous discussion and improve the code together. An example of a better version can be:
+The aim of  the above discussion is to modify and improve the code together, focusing on the points identified in the previous discussion.
+The simpler solution might be just to focus on the names and add some comments. 
+```python
+#Plot a spiral in polar coordianate
+#for a given list of theta values
+
+def plot_spiral(theta):
+  # Creates an array of evenly spaced radius values from 0 to 1. 
+  # The final array has the same number of element than theta
+  radius = np.linspace(0,1,len(theta)) 
+  # Converts polar coordinates to Cartesian
+  x_coordinate = radius * np.cos(theta)
+  y_coordinate = radius * np.sin(theta)
+  plt.plot(x_coordinate,y_coordinate)
+  plt.show()
+```
+The point is to show that simple modification can improve code readability. 
+
+A better version can be:
 
 ```python
 import numpy as np
@@ -137,11 +155,14 @@ def visualise_spiral_polar_coordinates(x_coordinate,y_coordinate): #split data a
 
 ## Why does structured code improve readability?
 
-Image to read a document that looks like the one below
->This is a document that has no punctuation or structure it just keeps going on and on without any breaks or organization the words run together endlessly making it very difficult to understand what the author is trying to communicate the text flows continuously without any separation between ideas or concepts it becomes increasingly hard to follow the train of thought as the words keep flowing together in an endless stream of characters without any visual breaks or formatting to help guide the reader through the content
+Imagine reading a document like the one below
 
+::::::::::::::::::::::::::::::::::::::callout
+## 
+This is a document that has no punctuation or structure it just keeps going on and on without any breaks or organization the words run together endlessly making it very difficult to understand what the author is trying to communicate the text flows continuously without any separation between ideas or concepts it becomes increasingly hard to follow the train of thought as the words keep flowing together in an endless stream of characters without any visual breaks or formatting to help guide the reader through the content
 The text is a continuous, unbroken sequence of words. It might contain the most deep considerations or be the most interesting document, but reading it is hard. 
 The challenge is to find specific information, where one idea starts or ends. To modify this wall of words is even more complex: how can you be sure that changes will not affect another part? 
+::::::::::::::::::::::::::::::::::::::
 
 This unstructured text is how unstructured code appears. Just as this text lacks punctuation, paragraphs, and formatting, unstructured code lacks modular organization, clear separation of functions, and logical flow control that makes structured code readable and maintainable. 
 
@@ -205,10 +226,13 @@ Below, a different version of the code that tries to correct these violations is
 import numpy as np
 import matplotlib.pyplot as plt
 
+# Generate Y data using linear equation y=mx+b with Gaussian noise 
 def generate_data(x_values, slope, intercept):
+    
     y_values = slope * x_values + intercept + np.random.normal(0, 0.5, len(x_values)) 
     return y_values
 
+# Get linear regression coefficient
 def fit_linear_regression(x_values, y_values):
     A = np.vstack([X, np.ones(len(x_values))]).T
     coefficients = np.linalg.lstsq(A, y_values, rcond=None)[0] 
@@ -234,7 +258,7 @@ This improved structure makes the code more maintainable, testable, and easier t
 By writing code for people to read, you improve the maintainability and usability of your code. This ensures that others (and your future self) can easily understand, modify, and extend the code.
 
 Writing readable code requires a bit more effort, but there are a few tips that make it simpler like:
-
+- **Be kind with your future self** you will thereby also be kind to others who come to your code.
 - **Use meaningful variable names**.
 - **Break down complex functions into smaller functions**.
 - **Add comments to explain the "why" behind your code**.
