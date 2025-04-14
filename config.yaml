@@ -71,9 +71,10 @@ episodes:
 - Episode4.Rmd
 # Information for Learners
 learners:
-
+#- setup.Rmd
 # Information for Instructors
 instructors:
+#- instructor-notes.Rmd
 
 # Learner Profiles
 profiles:

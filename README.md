@@ -1,83 +1,61 @@
-# The Carpentries Workbench Template Markdown Lesson
+# Writing Readable Code
 
-This lesson is a template lesson that uses [The Carpentries Workbench][workbench]. 
+This course is intended for scientists with a basic to intermediate understanding of Python who wish to improve the quality of their code. Although Python is used as an example language, the general concepts can be applied to other languages. 
 
-## Note about lesson life cycle stage
-Although the `config.yaml` states the life cycle stage as pre-alpha, **the template is stable and ready to use**. The life cycle stage is preset to `"pre-alpha"` as this setting is appropriate for new lessons initialised using the template.
+There are a few misconceptions that this course aims to correct:
 
-## Create a new repository from this template
+- "I will always remember my code": The idea is that since I wrote the code, I will always be able to explain it to others. The reality is different. When a code is completed, used once or for a limited time, even the author will forget how it works or what it does. Therefore, when it is needed to be reused in the future, a lot of time is wasted trying to understand it. If the code is written, keeping in mind that we need to reuse it, we can write better code that requires less time to read. 
 
-To use this template to start a new lesson repository, 
-make sure you're logged into Github.   
-Visit https://github.com/carpentries/workbench-template-md/generate
-and follow the instructions.
-Checking the 'Include all branches' option will save some time waiting for the first website build
-when your new repository is initialised.
+- "Code is for the computer to run". True, but also for people to read. Code is often more read than written. We read code when trying to modify it or add new features. If someone else wrote the codebase, we spent more time reading it and trying to understand how it works than writing new code to extend it. Creating a code for people will make it easy to read and maintain. This results in spending less time trying to understand the code.
 
-If you have any questions, contact [@tobyhodges](https://github.com/tobyhodges)
+- "Software engineers write good code. I am a scientist, I don't need to". Scientists use code for their research, and even if it is not their main outcome, code is sometimes the primary tool to reproduce the results. Often, they share their code with a large community so that other people can use it. If the code is not clear, not tested and not easy to extend, it cannot be easily used. Therefore, scientists must invest time in writing good-quality code. 
 
-## Configure a new lesson
+- "I don't have time for testing". Testing is the most underrated task in any coding activity. Design and writing tests require time, and although some testing is added to evaluate the code, coding projects often lack a reliable testing framework. The truth is testing can actually save time in the long run. Every time a code needs to be improved or extended, a test will be required to ensure that any change did not affect previous functionality. Testing also provides trust in the code and, therefore, in the results it produces. 
 
-Follow the steps below to
-complete the initial configuration of a new lesson repository built from this template:
+## Course Links
 
-1. **Make sure GitHub Pages is activated:**
-   navigate to _Settings_,
-   select _Pages_ from the left sidebar,
-   and make sure that `gh-pages` is selected as the branch to build from.
-   If no `gh-pages` branch is available, check _Actions_ to see if the first
-   website build workflows are still running.
-   The branch should become available when those have completed.
-1. **Adjust the `config.yaml` file:**
-   this file contains global parameters for your lesson site.
-   Individual fields within the file are documented with comments (beginning with `#`)
-   At minimum, you should adjust all the fields marked 'FIXME':
-   - `title`
-   - `created`
-   - `keywords`
-   - `life_cycle` (the default, _pre-alpha_, is the appropriate for brand new lessons)
-   - `contact`
-1. **Annotate the repository** with site URL and topic tags:
-   navigate back to the repository landing page and
-   click on the gear wheel/cog icon (similar to ⚙️) 
-   at the top-right of the _About_ box.
-   Check the "Use your GitHub Pages website" option,
-   and [add some keywords and other annotations to describe your lesson](https://cdh.carpentries.org/the-carpentries-incubator.html#topic-tags)
-   in the _Topics_ field.
-   At minimum, these should include:
-   - `lesson`
-   - the life cycle of the lesson (e.g. `pre-alpha`)
-   - the human language the lesson is written in (e.g. `deutsch`)
-1. **Adjust the 
-   `CITATION.cff`, `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, and `LICENSE.md` files**
-   as appropriate for your project.
-   -  `CITATION.cff`:
-      this file contains information that people can use to cite your lesson,
-      for example if they publish their own work based on it.
-      You should [update the CFF][cff-sandpaper-docs] now to include information about your lesson,
-      and remember to return to it periodically, keeping it updated as your
-      author list grows and other details become available or need to change.
-      The [Citation File Format home page][cff-home] gives more information about the format,
-      and the [`cffinit` webtool][cffinit] can be used to create new and update existing CFF files.
-   -  `CODE_OF_CONDUCT.md`: 
-      if you are using this template for a project outside The Carpentries,
-      you should adjust this file to describe 
-      who should be contacted with Code of Conduct reports,
-      and how those reports will be handled.
-   -  `CONTRIBUTING.md`:
-      depending on the current state and maturity of your project,
-      the contents of the template Contributing Guide may not be appropriate.
-      You should adjust the file to help guide contributors on how best
-      to get involved and make an impact on your lesson.
-   -  `LICENSE.md`:
-      in line with the terms of the CC-BY license,
-      you should ensure that the copyright information 
-      provided in the license file is accurate for your project.
-1. **Update this README with 
-   [relevant information about your lesson](https://carpentries.github.io/lesson-development-training/collaborating-newcomers.html#readme)**
-   and delete this section.
+Please have a look at the content [here](https://magdag81.github.io/readable-code/index.html)
 
-[cff-home]: https://citation-file-format.github.io/
-[cff-sandpaper-docs]:  https://carpentries.github.io/sandpaper-docs/editing.html#making-your-lesson-citable
-[cffinit]: https://citation-file-format.github.io/cff-initializer-javascript/
-[workbench]: https://carpentries.github.io/sandpaper-docs/
+## Lesson Status
+The course is in pre-alpha. 
+
+## Course Design
+
+The course is divided into four episodes:
+
+- Episode 1: Write Readable Code
+- Episode 2: Write Elegant Code
+- Episode 3: Write Graceful Code
+- Episode 4: Write Reliable Code
+
+Each episode combines discussion and hands-on activities
+
+##Course Delivery
+
+The course is suitable for both instructor-led teaching and self-learning. 
+
+## Enviroment
+
+The course does not use and require any specific version of Python or packages, but it uses the following  
+
+- numpy
+- matplotlib
+- Pytest
+
+The setup used for this course is:
+-Python 3.13.1
+- numpy==2.2.4
+- matplotlib==3.10.1
+- pytest==8.3.5
+
+
+# Contributions
+All contributions to improve the lesson are welcome! 
+
+If you wish to contribute, please familiarise yourself with [Contribution Guide](./CONTRIBUTING.md) and have a look at the detailed [guidelines](https://carpentries.github.io/lesson-example/) on proper formatting, instructions on compiling and rendering the lesson locally, and making any changes and adding new content or episodes.
+
+## Author
+Magda Guglielmo, CSIRO 
+
+## Maintener
+Magda Guglielmo, CSIRO   
