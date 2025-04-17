@@ -5,7 +5,7 @@
 # ensuring that the author list and other fields remain accurate.
 
 cff-version: 1.2.0
-title: FIXME
+title: Write readable code
 message: >-
   Please cite this lesson using the information in this file
   when you refer to it in publications, and/or if you
@@ -13,10 +13,19 @@ message: >-
   training material.
 type: dataset
 authors:
-  - given-names: FIXME
-    family-names: FIXME
+  - given-names: Magda
+    family-names: Guglielmo
+    affiliation: CSIRO
+    email: magda.guglielmo@csiro.au
 abstract: >-
-  FIXME Replace this with a short abstract describing the
-  lesson, e.g. its target audience and main intended
-  learning objectives.
+This lesson introduces the importance of writing readable code, highlighting that this practice primarily benefits the author before aiding others.
+Participants will explore examples of basic, functional, yet unstructured code and learn to apply simple rules—such as meaningful names, effective 
+error handling, and clear docstrings—that transform it into readable and maintainable scripts. This approach has the advantage of making code easier 
+to understand, debug, and improve.  
+
+The lesson also emphasises the importance of testing and its role in making the code more reliable. 
+By being introduced to test-driven development (TDD),  learners will discover how creating tests before can lead to more robust and structured code. 
+
+By the end of the lesson, participants will be equipped with practical techniques to improve their coding standards. 
+They will understand how to inspect their code critically to continuously improve its quality. 
 license: CC-BY-4.0
