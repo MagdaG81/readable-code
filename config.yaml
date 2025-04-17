@@ -23,7 +23,7 @@ title: 'Write Readable Code'
 created: '2025-01-29'
 
 # Comma-separated list of keywords for the lesson
-keywords: 'software, Python, lesson, The Carpentries'
+keywords: 'software, Python, lesson, good practice, TDD, The Carpentries'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
