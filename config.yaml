@@ -33,7 +33,7 @@ life_cycle: 'pre-alpha'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/MagdaG81/write-readable-code'
+source: 'https://github.com/carpentries-incubator/write-readable-code'
 
 # Default branch of your lesson
 branch: 'main'
